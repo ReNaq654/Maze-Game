@@ -35,7 +35,7 @@ public class PlayerLife : MonoBehaviour
         {
             SceneManager.LoadScene(1); //Loads First Level of Game
         }
-        else if (!goToBeginning)
+        else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Gets the current scene from build settings in Unity and reloads it.
         }
