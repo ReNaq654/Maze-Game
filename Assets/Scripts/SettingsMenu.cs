@@ -7,7 +7,7 @@ public class SettingsMenu : MonoBehaviour
 {
     Resolution[] resolutions; //Create array for resolutions
 
-    public Dropdown resolutionDropdown;
+    public TMPro.TMP_Dropdown resolutionDropdown;
 
     private void Start()
     {
