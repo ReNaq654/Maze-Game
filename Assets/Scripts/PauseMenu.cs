@@ -8,6 +8,17 @@ public class PauseMenu : MonoBehaviour
     public static bool GamePaused = false;
 
     public GameObject pauseMenu;
+    public GameObject player;
+    public GameObject wall;
+    public GameObject DeathBlock;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        DeathBlock = GameObject.FindWithTag("DeathBlock");
+        wall = GameObject.FindWithTag("Terrain");
+        player = GameObject.FindWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,6 +37,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        player.SetActive(true);
+        wall.SetActive(true);
+        DeathBlock.SetActive(true);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
@@ -33,6 +47,9 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        player.SetActive(false);
+        wall.SetActive(false);
+        DeathBlock.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;

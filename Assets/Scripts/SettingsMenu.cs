@@ -9,7 +9,8 @@ public class SettingsMenu : MonoBehaviour
 
     public TMPro.TMP_Dropdown resolutionDropdown;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         resolutions = Screen.resolutions;
 

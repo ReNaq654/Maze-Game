@@ -749,6 +749,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 580636347}
+  player: {fileID: 0}
+  wall: {fileID: 0}
+  DeathBlock: {fileID: 0}
 --- !u!1 &1224747999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1033,7 @@ GameObject:
   - component: {fileID: 1489319370}
   m_Layer: 0
   m_Name: Wall/Floor
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
