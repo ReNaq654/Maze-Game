@@ -18,7 +18,7 @@ public class SettingsMenu : MonoBehaviour
 
         List<string> options = new List<string>(); //List of strings that will be options
 
-        int currentScreenResolution = 0; //int to help check resolution
+        int currentResolutionIndex = 0; //int to help check resolution
 
         for (int i = 0; i < resolutions.Length; i++) //Loop through each element in resolutions array
         {
@@ -28,13 +28,13 @@ public class SettingsMenu : MonoBehaviour
             if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height) //Comparing resolution width and height
             {
-                currentScreenResolution = i;
+                currentResolutionIndex = i;
             }
         }
 
         resolutionDropdown.AddOptions(options); //Adds options list  to the Resolution dropdown in game
 
-        resolutionDropdown.value = currentScreenResolution;
+        resolutionDropdown.value = currentResolutionIndex; 
         resolutionDropdown.RefreshShownValue(); //Refreshs value to display correct resolution
     }
 
