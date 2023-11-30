@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     private SpriteRenderer sprite;
+
+
     public bool goToBeginning = false;
+
+    public AudioSource dieSound;
 
     // Start is called before the first frame update
     public void Start()
@@ -26,7 +30,8 @@ public class PlayerLife : MonoBehaviour
     {
         sprite.enabled = false; //Disables Sprite Renderer for Player, so doesn't show him when hit in game.
         GetComponent<PlayerMovement>().enabled = false; //Disables PlayerMovement Script, stopping movement of the player
-        Invoke(nameof(ReloadLevel), 1.5f); //Calls ReloadLevel() method after 1.5 second delay 
+        Invoke(nameof(ReloadLevel), 1.5f); //Calls ReloadLevel() method after 1.5 second delay
+        dieSound.Play();
     }
 
     public void ReloadLevel()
