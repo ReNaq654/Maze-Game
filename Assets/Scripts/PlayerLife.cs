@@ -7,8 +7,9 @@ public class PlayerLife : MonoBehaviour
 {
     private SpriteRenderer sprite;
 
+    private CircleCollider2D coll;
 
-    public bool goToBeginning = false;
+    private BoxCollider2D collide;
 
     public AudioSource dieSound;
 
@@ -16,6 +17,8 @@ public class PlayerLife : MonoBehaviour
     public void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        coll = GetComponent<CircleCollider2D>();
+        collide = GetComponent<BoxCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,19 +33,15 @@ public class PlayerLife : MonoBehaviour
     {
         sprite.enabled = false; //Disables Sprite Renderer for Player, so doesn't show him when hit in game.
         GetComponent<PlayerMovement>().enabled = false; //Disables PlayerMovement Script, stopping movement of the player
+        coll.enabled = false; //Disables Collider
+        collide.enabled = false; //Disables Box Collider (Level05 Only)
+        dieSound.Play(); //Plays dieSound
         Invoke(nameof(ReloadLevel), 1.5f); //Calls ReloadLevel() method after 1.5 second delay
-        dieSound.Play();
+
     }
 
     public void ReloadLevel()
     {
-        if (goToBeginning)
-        {
-            SceneManager.LoadScene(1); //Loads First Level of Game
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Gets the current scene from build settings in Unity and reloads it.
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Gets the current scene from build settings in Unity and reloads it.
     }
 }
